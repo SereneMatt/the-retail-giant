@@ -7,3 +7,8 @@ a {
   text-decoration: none;
   color: black;
 }
+
+/* To have elements inline and overwrite browser's margin */
+* {
+  box-sizing: border-box;
+}
