@@ -1,6 +1,7 @@
 // Reducer gets two properties:
 // Last state and action - type
 // payload
+import { UserActionTypes } from './user.types';
 
 const INITIAL_STATE = { // similar to set state in constructor
   currentUser: null
@@ -8,7 +9,7 @@ const INITIAL_STATE = { // similar to set state in constructor
 
 const userReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) { // action type = reducer type
-    case 'SET_CURRENT_USER':
+    case UserActionTypes.SET_CURRENT_USER:
       return {
         ...state, // every other state needs to be spread, because every reducer gets called for any action
         currentUser: action.payload
