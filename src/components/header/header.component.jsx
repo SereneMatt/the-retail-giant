@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import { ReactComponent  as Logo } from '../../assets/crown.svg';
 
@@ -28,4 +29,9 @@ const Header = ({ currentUser }) => (
   </div>
 );
 
-export default Header;
+// Name of the property is the property you want to pass in to component
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser
+});
+
+export default connect(mapStateToProps)(Header);
