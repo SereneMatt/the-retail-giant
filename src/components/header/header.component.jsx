@@ -39,7 +39,7 @@ const Header = ({ currentUser, hidden }) => (
 );
 
 // Name of the property is the property you want to pass in to component
-const mapStateToProps = (state) => createStructuredSelector({
+const mapStateToProps = () => createStructuredSelector({
   currentUser: selectCurrentUser,
   hidden: selectCartHidden
 });
