@@ -1,8 +1,6 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-// Guaranteed that class names are unique. Easy to remove this style if unused.
-import styled from 'styled-components';
 import { createStructuredSelector } from 'reselect';
 
 import './App.css';
@@ -16,14 +14,6 @@ import Header from './components/header/header.component';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selector';
-
-// It is possible to share this component. Able to leverage props.
-// De-structure the props
-const Text = styled.div`
-  color: red;
-  font-size: 28px;
-  border: ${ ({isActive}) => isActive ? '1px solid black' : '3px dotted green' };
-`;
 
 class App extends React.Component {
   // YOU DON'T NEED CONSTRUCTOR
@@ -57,7 +47,6 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Text isActive={false}>I am a styled component</Text>
         {/* Always place header outside of switch. It always exists. */}
         <Header />
         <Switch>
@@ -75,7 +64,7 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => createStructuredSelector({
+const mapStateToProps = () => createStructuredSelector({
   currentUser: selectCurrentUser
 });
 
